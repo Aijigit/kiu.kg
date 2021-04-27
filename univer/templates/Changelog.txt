@@ -1,0 +1,6 @@
+1- Different home added.
+2- Carousel issue on Firefox fixed.
+3- Footer style issue fixed.
+4- Gallery page added.
+5- Sticky navigation bar added.
+6- Some CSS issues fixed.
