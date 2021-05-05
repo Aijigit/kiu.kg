@@ -1,0 +1,65 @@
+{% extends 'base.html ' %}
+
+{% block title %}Фотогалерея{% endblock %}
+
+{% block content %}
+  <div class="container"> 
+    <!-- bage header start -->
+    <div class="page-header">
+      <h1>Фотогалерея</h1>
+      <ol class="breadcrumb">
+        <li><a href="/">Башкы бет</a></li>
+        <li class="active">Фотогалерея</li>
+      </ol>
+    </div>
+    <!-- bage header end --> 
+  </div>
+  
+  <!-- data start -->
+  <section>
+    <div class="container ">
+      <div class="row "> 
+        <!-- left sec start -->
+        <div class="col-md-11 col-sm-11">
+          <div class="row"> 
+            <!-- gallery start -->
+            <div class="gallery">
+              {% for photos in pag_photo %}
+              <div class="col-sm-8 wow fadeInDown animated "> <a class="gallery-item" href="{{ photos.gallery_photo.url }}" class="popup-img">
+                <div class="thumb-box"><span class="ion-arrow-expand"></span>
+                  <div class="carousel-caption">{{ photos.gallery_title }}</div>
+                  <img width="1600" height="972" alt="" src="{{ photos.gallery_photo.url }}" class="img-thumbnail"></div>
+                </a> </div>
+              {% endfor %}
+
+            </div>
+            <!-- gallery end -->
+             <div class="col-sm-16">
+              <hr>
+            {% if pag_photo.has_other_pages %}
+              <ul class="pagination">
+                {% if pag_photo.has_previous %}
+                <li><a href="?page={{ pag_photo.previous_page_number}}">&laquo;</a></li>
+                {% endif %}
+                {% for i in pag_photo.paginator.page_range %}
+                {% if pag_photo.number == i %}
+                <li class="active"><a href="?page={{ i }}">{{ i }}</a></li> 
+                {% else %}
+                <li><a href="?page={{ i }}">{{ i }}</a></li>
+                {% endif %}
+                {% endfor %}
+                {% if pag_photo.has_next %}
+                <li><a href="?page={{ pag_photo.next_page_number }}">&raquo;</a></li>
+                {% endif %}
+              </ul>
+              {% endif %}
+          </div>
+        </div>
+      </div>
+        <!-- left sec end --> 
+      </div>
+    </div>
+  </section>
+  <!-- data end --> 
+  
+ {% endblock %}

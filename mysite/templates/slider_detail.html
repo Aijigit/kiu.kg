@@ -1,0 +1,81 @@
+{% extends 'base.html' %}
+<div id="preloader">
+  <div id="status"></div>
+</div>
+<!-- preloader end -->
+{% block content %}
+  <!-- bage header Start -->
+  <div class="container">
+    <div class="page-header">
+      <h1>{{ slider.category }} </h1>
+      <ol class="breadcrumb">
+        <li><a href="/">Башкы бет</a></li>
+        <li><a href="{% url 'all_posts' %}">Беттер</a></li>
+        <li class="active">{{ slider.category }}</li>
+      </ol>
+    </div>
+  </div>
+
+  <!-- bage header End --> 
+  <!-- data Start -->
+  <section>
+    <div class="container ">
+      <div class="row "> 
+        <!-- left sec Start -->
+        <div class="col-md-11 col-sm-11">
+          <div class="row"> 
+            <!-- post details start -->
+            <div class="col-sm-16">
+              <div class="row">
+                <div class="sec-topic col-sm-16  wow fadeInDown animated " data-wow-delay="0.5s">
+                  <div class="row">
+                    <div class="col-sm-16"> <img width="1000" height="606" alt="" src="{{ slider.slider_img.url }}" class="img-thumbnail"> </div>
+                    <div class="col-sm-16 sec-info">
+                      <h3>{{ slider.slider_title }}</h3>
+                      <div class="text-danger sub-info-bordered">
+                        <div class="author"><span class="ion-person icon"></span>Admin</div>
+                        <div class="time"><span class="ion-android-data icon"></span>{{slider.slider_created_date }}</div>
+                        <div class="stars"><span class="ion-ios7-star"></span><span class="ion-ios7-star"></span><span class="ion-ios7-star"></span><span class="ion-ios7-star"></span><span class="ion-ios7-star-half"></span></div>
+                      </div>
+                      <p>{{ slider.slider_text | linebreaks }}</p>
+                      <blockquote>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
+                      </blockquote>
+                      <p> Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet.Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi.</p>
+                      <ul class="icn-list">
+                        <li>Lorem ipsum dolor sit amet</li>
+                        <li>Consectetur adipiscing elit</li>
+                        <li>Integer molestie lorem at massa</li>
+                        <li>Facilisis in pretium nisl aliquet</li>
+                        <li>Nulla volutpat aliquam velit
+                          <ul>
+                            <li>Phasellus iaculis neque</li>
+                            <li>Purus sodales ultricies</li>
+                            <li>Vestibulum laoreet porttitor sem</li>
+                            <li>Ac tristique libero volutpat at</li>
+                          </ul>
+                        </li>
+                        <li>Faucibus porta lacus fringilla vel</li>
+                        <li>Aenean sit amet erat nunc</li>
+                        <li>Eget porttitor lorem</li>
+                      </ul>
+                      <p>Aenean commodo ligula eget dolor. Aenean massa.
+                        <mark> Cum sociis</mark>
+                        natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim.
+                        
+                        Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo</p>
+                      <hr>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- post details end --> 
+          </div>
+        </div>
+        <!-- left sec End --> 
+        <!-- right sec Start -->
+  </section>
+  <!-- Data End --> 
+  {% endblock %}
+  

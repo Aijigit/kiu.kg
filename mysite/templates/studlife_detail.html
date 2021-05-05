@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+
+<!-- preloader end -->
+{% block content %}
+  <!-- bage header Start -->
+  <div class="container">
+    <div class="page-header">
+      <h1>{{ studlife_detail.category }} </h1>
+      <ol class="breadcrumb">
+        <li><a href="/">Башкы бет</a></li>
+        <li><a href="{% url 'studlife_list' %}">Беттер</a></li>
+        <li class="active">{{ studlife_detail.category }}</li>
+      </ol>
+    </div>
+  </div>
+
+  <!-- bage header End --> 
+  <!-- data Start -->
+  <section>
+    <div class="container ">
+      <div class="row "> 
+        <!-- left sec Start -->
+        <div class="col-md-11 col-sm-11">
+          <div class="row"> 
+            <!-- post details start -->
+            <div class="col-sm-16">
+              <div class="row">
+                <div class="sec-topic col-sm-16  wow fadeInDown animated " data-wow-delay="0.5s">
+                  <div class="row">
+                    <div class="col-sm-16"> <img width="1000" height="606" alt="" src="{{ studlife_detail.studlife_photo.url }}" class="img-thumbnail"> </div>
+                    <div class="col-sm-16 sec-info">
+                      <h3>{{ studlife_detail.title }}</h3>
+                      <div class="text-danger sub-info-bordered">
+                        <div class="time"><span class="ion-android-data icon"></span>{{ studlife_detail.studlife_created_date }}</div>
+                        <div class="stars"><span class="ion-ios7-star"></span><span class="ion-ios7-star"></span><span class="ion-ios7-star"></span><span class="ion-ios7-star"></span><span class="ion-ios7-star-half"></span></div>
+                      </div>
+                      <p>{{ studlife_detail.studlife_text }}</p>
+                      <hr>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- post details end --> 
+          </div>
+        </div>
+        <!-- left sec End --> 
+        <!-- right sec Start -->
+  </section>
+  <!-- Data End --> 
+  {% endblock %}
+  

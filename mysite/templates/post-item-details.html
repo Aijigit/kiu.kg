@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+
+<!-- preloader end -->
+{% block content %}
+  <!-- bage header Start -->
+  <div class="container">
+    <div class="page-header">
+      <h1>{{ post.category }} </h1>
+      <ol class="breadcrumb">
+        <li><a href="/">Башкы бет</a></li>
+        <li><a href="{% url 'all_posts' %}">Беттер</a></li>
+        <li class="active">{{ post.category }}</li>
+      </ol>
+    </div>
+  </div>
+
+  <!-- bage header End --> 
+  <!-- data Start -->
+  <section>
+    <div class="container ">
+      <div class="row "> 
+        <!-- left sec Start -->
+        <div class="col-md-11 col-sm-11">
+          <div class="row"> 
+            <!-- post details start -->
+            <div class="col-sm-16">
+              <div class="row">
+                <div class="sec-topic col-sm-16  wow fadeInDown animated " data-wow-delay="0.5s">
+                  <div class="row">
+                    <div class="col-sm-16"> <img width="1000" height="606" alt="" src="{{ post.post_image.url }}" class="img-thumbnail"> </div>
+                    <div class="col-sm-16 sec-info">
+                      <h3>{{ post.title }}</h3>
+                      <div class="text-danger sub-info-bordered">
+                        <div class="author"><span class="ion-person icon"></span>Admin</div>
+                        <div class="time"><span class="ion-android-data icon"></span>{{ post.published_date }}</div>
+                        <div class="stars"><span class="ion-ios7-star"></span><span class="ion-ios7-star"></span><span class="ion-ios7-star"></span><span class="ion-ios7-star"></span><span class="ion-ios7-star-half"></span></div>
+                      </div>
+                      <p>{{ post.text }}</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- post details end --> 
+          </div>
+        </div>
+        <!-- left sec End --> 
+        <!-- right sec Start -->
+  </section>
+  <!-- Data End --> 
+  {% endblock %}
+  

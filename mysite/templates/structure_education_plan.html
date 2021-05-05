@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+{% block content %}
+
+  <!-- sticky header end --> 
+  <!-- bage header Start -->
+  <div class="container">
+    <div class="page-header">
+      <h1>Окуу пландары жана билим берүү программалары </h1>
+      <ol class="breadcrumb">
+        <li><a href="/">Башкы Бет</a></li>
+        <li class="active">Структура</li>
+      </ol>
+    </div>
+  </div>
+  <!-- bage header End --> 
+  <!-- data Start -->
+  <section>
+    <div class="container ">
+      <div class="row "> 
+        <!-- left sec Start -->
+        <div class="col-md-11 col-sm-11">
+          <div class="row">
+            <div class="panel-group" id="nav-tabContent">
+              {% for str in str_edc_plan %}
+              <div class="panel panel-default ">
+                <div class="panel-heading">
+                 
+                  <h4 class="panel-title"> <a  href="{{ str.str_file.url }}">
+                    <span class="material-icons">picture_as_pdf </span>
+                    <span>{{ str.str_title }}</span> </a> </h4>
+                  
+                </div>
+              </div>
+              {% endfor %}
+        
+            </div>
+          </div>
+        </div>
+        <!-- left sec End --> 
+         <!-- right sec Start -->
+        <div class="col-sm-5 hidden-xs right-sec">
+          <div class="bordered">
+            <div class="row ">
+                <!-- Tab panes -->
+                <div class="tab-content">
+                  <nav class="nav-container">
+                    <div class="nav nav-tabs" id="nav-tab">
+                     <a class="nav-item nav-link" href="{% url 'structure_education' %}">Окуу пландары жана билим берүү программалары</a>
+                      <a class="nav-item nav-link active" href="{% url 'structure_edc_plan' %}">Билим берүүнүн сапатын камсыздоо саясаты </a>
+                      <a class="nav-item nav-link" href="{% url 'structure_development' %}">Инсанга багытталган окутуу жана жетишүүнү баалоо </a>
+                      <a class="nav-item nav-link" href="{% url 'structure_reception' %}">Кабыл алуу жана билим берүүнүн натыйжаларын таануу</a>
+                      <a class="nav-item nav-link " href="{% url 'structure_komokchu_kuram' %}">Окутуучулук жана окутуучу-көмөкчү курам </a>
+                      <a class="nav-item nav-link " href="{% url 'structure_tech_base' %}">Материалдык-техникалык база жана маалымат ресурстары </a>
+                      <a class="nav-item nav-link" href="{% url 'structure_info_leading' %}">Маалыматты башкаруу жана аны коомчулукка жеткирүү  </a>
+                    </div>
+                  </nav>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Right Sec End --> 
+      </div>
+    </div>
+  </section>
+  <!-- Data End --> 
+{% endblock %}
+       

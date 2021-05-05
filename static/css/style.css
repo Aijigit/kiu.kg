@@ -1,0 +1,51 @@
+.navbar-brand{
+	display: flex;
+}
+.logo-container{
+	font-size: 22px;
+	padding: 10px;
+}
+.lg-text{
+}
+.sticky-header .header .row{
+	background-image: url('../images/logo/walpaper.jpg');
+	background-size: cover;
+}
+
+#comp img{
+	max-width: 100%;
+	height: 420px;
+}
+span.mega-menu-title{
+	font-size: 16px;
+	padding-left: 10px;
+	font-weight: 600;
+	color: #fff;
+}
+
+.nav-container{
+	padding: 5px;
+}
+.nav-container .nav-tabs{
+	display: flex;
+	flex-direction: column;
+}
+
+.nav-container .nav-tabs .nav-link{
+	background-color: #ededed;
+	padding: 10px;
+	color: #428bca;
+	border-left: 5px solid #428bca;
+	margin-bottom: 2px;
+	font-weight: 600;
+}
+.nav-container .nav-tabs .nav-link:hover{
+	background: #e74c3c;
+	color: #fff;
+	border-left: 3px solid blue;
+}
+.nav-container .nav-tabs a.active{
+	background-color: #e74c3c;
+	border-left: 3px solid red;
+	color: #fcfcfc;
+}

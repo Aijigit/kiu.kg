@@ -1,0 +1,357 @@
+
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} 
+  Башкы Бет
+{% endblock %}
+
+{% block content %}
+  <!-- wrapper start -->
+
+  <div class="container">
+    <div class="row"> 
+      <!-- hot news start -->
+      <!-- Жүгүртмө жаңылыктар же жарыялар -->
+     
+      <div class="col-sm-16 hot-news hidden-xs">
+        <div class="row">
+          <div class="col-sm-15"> <span class="ion-ios7-timer icon-news pull-left"></span>
+            <ul id="js-news" class="js-hidden">
+               {% for idioms in idiom  %}
+              <li class="news-item"><a href="">{{ idioms.idiom_text }}</a></li>
+               {% endfor %}
+            </ul>
+          </div>
+          <div class="col-sm-1 shuffle text-right"><a href="#"><span class="ion-shuffle"></span></a></div>
+        </div>
+      </div>
+     
+ 
+      <!-- hot news end --> 
+      <!-- banner outer start -->
+      <div  class="col-sm-16 banner-outer wow fadeInLeft animated" data-wow-delay="1s" data-wow-offset="50">
+        <div class="row">
+          <div class="col-sm-16 col-md-10 col-lg-8"> 
+   
+            <!-- carousel start -->
+            <div id="sync1" class="owl-carousel">
+            {% for slides in slider %}
+              <div class="box item"> <a href="{% url 'slider_detail' slides.pk %}">
+                <div class="carousel-caption">{{ slides.slider_title }}</div>
+                <img class="img-responsive" src="{{ slides.slider_img.url }}" width="1600" height="972" alt=""/>
+                <div class="overlay"></div>
+                <div class="overlay-info">
+                  <div class="cat">
+                    <p class="cat-data"><span class="ion-model-s"></span>{{ slides.category }}</p>
+                  </div>
+                  <div class="info">
+                    <p><span class="ion-android-data"></span>{{ slides.slider_created_date }}</p>
+                  </div>
+                </div>
+                </a></div>
+              {% endfor %}
+            </div>
+            
+            <div class="row">
+              <div id="sync2" class="owl-carousel">
+                {% for slides in slider %}
+                <div class="item"><img class=" img-responsive" src="{{ slides.slider_img.url }}"  width="1600" height="972" alt=""/></div>
+                {% endfor %}
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6 col-md-6 col-lg-8 hidden-sm hidden-xs">
+            <div class="row">
+              <div class="col-lg-6 hidden-md"><a href="{% url 'competition_detail' main_competition.pk %}">
+                <div class="box" id="comp"> 
+                  <div class=" carousel-caption">{{ main_competition.comp_slug }}</div>
+                  <img class="match-height" src="{{ main_competition.comp_photo.url }}"  alt="" />
+                  <div class="overlay"></div>
+                  <div class="overlay-info">
+                    <div class="cat">
+                      <p class="cat-data"><span class="ion-model-s"></span>Жарыя!!!</p>
+                    </div>
+                    <div class="info">
+                      <p><span class="ion-android-data"></span>{{ main_competition.comp_created_date }}</p>
+                    </div>
+                  </div>
+                </div>
+                </a> </div>
+              <div class="col-md-16 col-lg-10">
+                <div class="row">
+                  <div class="col-sm-16 right-img-top "> <a href="#">
+                    <div class="box">
+                      <div class="carousel-caption">{{ abiturient.abt_slug }}</div>
+                      <img class="img-responsive" src="{{ abiturient.abt_photo.url }}" width="440" height="292" alt=""/>
+                      <div class="overlay"></div>
+                      <div class="overlay-info">
+                        <div class="cat">
+                          <p class="cat-data"><span class="ion-model-s"></span>{{ abiturient.category }}</p>
+                        </div>
+                        <div class="info">
+                          <p><span class="ion-android-data"></span>{{ abiturient.abt_created_date }}</p>
+                        </div>
+                      </div>
+                    </div>
+                    </a> </div>
+                  <div class="col-sm-16 right-img-btm "> <a href="{% url 'studlife_detail' studlife_main.pk %}">
+                    <div class="box">
+                      <div class="carousel-caption">{{ studlife_main.studlife_title }}</div>
+                      <img class="img-responsive" src="{{ studlife_main.studlife_photo.url }}" width="440" height="292" alt="Ишчара башкы сүрөт"/>
+                      <div class="overlay"></div>
+                      <div class="overlay-info">
+                        <div class="cat">
+                          <p class="cat-data"><span class="ion-model-s"></span>{{ studlife_main.category }}</p>
+                        </div>
+                        <div class="info">
+                          <p><span class="ion-android-data"></span>{{ studlife_main.studlife_created_date }}<!--span class="ion-chatbubbles"></span--></p>
+                        </div>
+                      </div>
+                    </div>
+                    </a> </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- banner outer end --> 
+      
+    </div>
+  </div>
+  <!-- top sec end --> 
+  
+  <!-- data start -->
+  
+  <div class="container ">
+    <div class="row "> 
+      <!-- left sec start -->
+      <div class="col-md-11 col-sm-11">
+        <div class="row"> 
+          <!-- business start -->
+          <div class="col-sm-16 business  wow fadeInDown animated" data-wow-delay="1s" data-wow-offset="50">
+            <div class="main-title-outer pull-left">
+              <div class="main-title">КИУ Жаңылыктары</div>
+              <div class="span-outer"><a href="{% url 'all_posts' %}" class="pull-right text-danger last-update"><span class="ion-android-data icon"></span>Баарын көрүү >>></a> </div>
+            </div>
+            <div class="row">
+              <div class="col-md-11 col-sm-16">
+                <div class="row">
+                  <div class="col-md-8 col-sm-9 col-xs-16">
+                    <div class="topic"> <a href="{% url 'post_detail' main_post.pk %}"><img class="img-thumbnail" src="{{ main_post.post_image.url }}" width="600" height="398" alt=""/>
+                      <h3>{{ main_post.post_slug }}</h3>
+                      <div class="text-danger sub-info-bordered">
+                        <div class="time"><span class="ion-android-data icon"></span>{{ main_post.published_date }}</div>
+                        <div class="comments"><span class="ion-chatbubbles icon"></span>204</div>
+                      </div>
+                      </a>
+                      <p>{{ main_post.title }}</p>
+                    </div>
+                  </div>
+                  <div class="col-md-8 col-sm-7 col-xs-16">
+                    <ul class="list-unstyled">
+                      {% for post in posts %}
+                      <li> <a href="{% url 'post_detail' post.pk %}">
+                        <div class="row">
+                          <div class="col-sm-5 hidden-sm hidden-md"><img class="img-thumbnail pull-left" src="{{ post.post_image }}" width="76" height="76" alt=""/> </div>
+                          <div class="col-sm-16 col-md-16 col-lg-11">
+                            <h4>{{ post.post_slug }}</h4>
+                            <div class="text-danger sub-info">
+                              <div class="time"><span class="ion-android-data icon"></span>{{ post.published_date }}</div>
+                            </div>
+                          </div>
+                        </div>
+                        </a> </li>
+                        {% endfor %}
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-5 col-sm-16 hidden-sm hidden-xs  left-bordered">
+                <div id="vid-thumbs" class="owl-carousel">
+                  <div class="item">
+                    <div class="vid-thumb-outer">
+                      <div class="vid-thumb"><a class="popup-youtube" href="https://youtu.be/3II8tawNhWk">
+                        <div class="vid-box"><span class="ion-ios7-film"></span><img class="img-thumbnail img-responsive" src="{% static 'images/business/business-vid-1.jpg' %}" width="250" height="143" alt=""/> </div>
+                        <h4>Perspiciatis unde omnis iste natus</h4>
+                        </a> </div>
+                      <div class="vid-thumb"><a class="popup-youtube" href="http://vimeo.com/7396421">
+                        <div class="vid-box"><span class="ion-ios7-film"></span><img class="img-thumbnail img-responsive" src="{% static 'images/business/business-vid-2.jpg' %}" width="250" height="143" alt=""/> </div>
+                        <h4>Cras tincidunt enim non metus ultricies.</h4>
+                        </a> </div>
+                    </div>
+                  </div>
+                  <div class="item">
+                    <div class="vid-thumb-outer">
+                      <div class="vid-thumb"><a href="">
+                        <div class="vid-box"><span class="ion-ios7-film"></span><img class="img-thumbnail img-responsive" src="{% static 'images/business/business-vid-1.jpg' %}" width="250" height="143" alt=""/> </div>
+                        <h4>Perspiciatis unde omnis iste natus</h4>
+                        </a> </div>
+                      <div class="vid-thumb"><a href="">
+                        <div class="vid-box"><span class="ion-ios7-film"></span><img class="img-thumbnail img-responsive" src="{% static 'images/business/business-vid-2.jpg' %}" width="250" height="143" alt=""/> </div>
+                        <h4>Cras tincidunt enim non metus ultricies.</h4>
+                        </a> </div>
+                    </div>
+                  </div>
+                  <div class="item">
+                    <div class="vid-thumb-outer">
+                      <div class="vid-thumb"><a href="">
+                        <div class="vid-box"><span class="ion-ios7-film"></span><img class="img-thumbnail img-responsive" src="{% static 'images/business/business-vid-1.jpg' %}" width="250" height="143" alt=""/> </div>
+                        <h4>Perspiciatis unde omnis iste natus</h4>
+                        </a> </div>
+                      <div class="vid-thumb"><a href="">
+                        <div class="vid-box"><span class="ion-ios7-film"></span><img class="img-thumbnail img-responsive" src="{% static 'images/business/business-vid-2.jpg' %}" width="250" height="143" alt=""/> </div>
+                        <h4>Cras tincidunt enim non metus ultricies.</h4>
+                        </a> </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <hr>
+          </div>
+          <!-- business end --> 
+          
+          
+          <!-- Scince & Travel end --> 
+          <!-- lifestyle start-->
+          <div class="col-sm-16 wow fadeInUp animated " data-wow-delay="0.5s" data-wow-offset="100">
+            <div class="main-title-outer pull-left">
+              <div class="main-title">Студенттик Кеңеш</div>
+              <div class="span-outer"><a href="{% url 'studlife_list' %}" class="pull-right text-danger last-update"><span class="ion-android-data icon"></span>Баарын көрүү >>></a> </div>
+            </div>
+            <div class="row">
+              <div id="owl-lifestyle" class="owl-carousel owl-theme lifestyle pull-left">
+                {% for studlifes in studlife %}
+                <div class="item topic"> <a href="{% url 'studlife_detail' studlifes.pk %}"> <img class="img-thumbnail" src="{{ studlifes.studlife_photo.url }}" width="300" height="132" alt=""/>
+                  <h4>{{ studlifes.studlife_title }}</h4>
+                  <div class="text-danger sub-info-bordered remove-borders">
+                    <div class="time"><span class="ion-android-data icon"></span>{{ studlifes.studlife_created_date }}</div>
+                    <div class="comments"><span class="ion-chatbubbles icon"></span>204</div>
+                    <div class="stars"><span class="ion-ios7-star"></span><span class="ion-ios7-star"></span><span class="ion-ios7-star"></span><span class="ion-ios7-star"></span><span class="ion-ios7-star-half"></span></div>
+                  </div>
+                  </a> </div>
+                {% endfor %}
+              </div>
+            </div>
+            <hr>
+          </div>
+          <!-- lifestyle end --> 
+          <!-- Science & Travel start -->
+          <div class="col-sm-16">
+            <div class="row">
+              <div class="col-xs-16 col-sm-8  wow fadeInLeft animated science" data-wow-delay="0.5s" data-wow-offset="130">
+                <div class="main-title-outer pull-left">
+                  <div class="main-title">Жарыя жана Кулактандыруу</div>
+                </div>
+                <div class="row">
+                  <div class="topic col-sm-16"> <a href="{% url 'ads_detail' ads_main.pk %}"><img class=" img-thumbnail" src="{{ ads_main.ads_photo.url }}" width="600" height="227" alt=""/>
+                    <h3> {{ ads_main.ads_title }}</h3>
+                    <div class="text-danger sub-info-bordered ">
+                      <div class="time"><span class="ion-android-data icon"></span>{{ ads_main.ads_created_date  }}</div>
+                      <div class="comments"><span class="ion-chatbubbles icon"></span>204</div>
+                      <div class="stars"><span class="ion-ios7-star"></span><span class="ion-ios7-star"></span><span class="ion-ios7-star"></span><span class="ion-ios7-star"></span><span class="ion-ios7-star-half"></span></div>
+                    </div>
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-8 col-xs-16 wow fadeInRight animated" data-wow-delay="0.5s" data-wow-offset="130">
+                <div class="main-title-outer pull-left">
+                  <div class="main-title">Акыркы Ишчара</div>
+                  <div class="span-outer"><a href="{% url 'studlife_list' %}" class="pull-right text-danger last-update"><span class="ion-android-data icon"></span>Баарын көрүү >>></a> </div>
+                </div>
+                <div class="row left-bordered">
+                  <div class="topic col-sm-16"> <a href="{% url 'studlife_detail' studlife_main.pk %}"> <img  class="img-thumbnail" src="{{ studlife_main.studlife_photo }}" width="600" height="227" alt=""/>
+                    <h3>{{ studlife_main.studlife_title }}</h3>
+                    <div class="text-danger sub-info-bordered">
+                      <div class="time"><span class="ion-android-data icon"></span>{{studlife_main.studlife_created_date }}</div>
+                      <div class="comments"><span class="ion-chatbubbles icon"></span>204</div>
+                      <div class="stars"><span class="ion-ios7-star"></span><span class="ion-ios7-star"></span><span class="ion-ios7-star"></span><span class="ion-ios7-star"></span><span class="ion-ios7-star-half"></span></div>
+                    </div>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <hr>
+          </div>
+         <!-- .. -->
+          <!--Recent videos end--> 
+          
+        </div>
+      </div>
+      <!-- left sec end --> 
+      <!-- right sec start -->
+      <div class="col-sm-5 hidden-xs right-sec">
+        <div class="bordered top-margin">
+          <div class="row ">
+            <!-- activities start -->
+            <div class="col-sm-16 bt-space wow fadeInUp animated" data-wow-delay="1s" data-wow-offset="130"> 
+              <!-- Nav tabs -->
+              <ul class="nav nav-tabs nav-justified " role="tablist">
+                <li class="active"><a href="#popular" role="tab" data-toggle="tab">Фотогалерея</a></li>
+                <li><a href="#recent" role="tab" data-toggle="tab">Ишчара</a></li>
+              </ul>
+              
+              <!-- Tab panes -->
+              <div class="tab-content">
+                <div class="tab-pane active" id="popular">
+                  <ul class="list-unstyled">
+                    {% for photos in gallery %}
+                    <li> <a href="{% url 'photo_gallery' %}">
+                      <div class="row">
+                        <div class="col-sm-5 col-md-4"><img class="img-thumbnail pull-left" src="{{ photos.gallery_photo.url }}" width="164" height="152" alt=""/> </div>
+                        <div class="col-sm-11 col-md-12">
+                          <h4>{{ photos.gallery_slug }}</h4>
+                          <div class="text-danger sub-info">
+                            <div class="time"><span class="ion-android-data icon"></span>{{ photos.gallery_created_date }}</div>
+                            <div class="stars"><span class="ion-ios7-star"></span><span class="ion-ios7-star"></span><span class="ion-ios7-star"></span><span class="ion-ios7-star"></span><span class="ion-ios7-star-half"></span></div>
+                          </div>
+                        </div>
+                      </div>
+                      </a> </li>
+                    {% endfor %}
+                  </ul>
+                </div>
+                <div class="tab-pane" id="recent">
+                  <ul class="list-unstyled">
+                    {% for studlife_post in studlife %}
+                    <li> <a href="{% url 'studlife_detail' studlife_post.pk %}">
+                      <div class="row">
+                        <div class="col-sm-5  col-md-4 "><img class="img-thumbnail pull-left" src="{{ studlife_post.studlife_photo.url }}" width="164" height="152" alt=""/> </div>
+                        <div class="col-sm-11  col-md-12 ">
+                          <h4>{{ studlife_post.studlife_title }}</h4>
+                          <div class="text-danger sub-info">
+                            <div class="time"><span class="ion-android-data icon"></span>Dec 16 2014</div>
+                            <div class="comments"><span class="ion-chatbubbles icon"></span>351</div>
+                            <div class="stars"><span class="ion-ios7-star"></span><span class="ion-ios7-star"></span><span class="ion-ios7-star"></span><span class="ion-ios7-star"></span><span class="ion-ios7-star-half"></span></div>
+                          </div>
+                        </div>
+                      </div>
+                      </a> </li>
+                    {% endfor %}
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <!-- activities end --> 
+            
+            
+            <!-- calendar start -->
+            <div class="col-sm-16 bt-space wow fadeInUp animated" data-wow-delay="1s" data-wow-offset="50">
+              <div class="single pull-left"></div>
+            </div>
+            <!-- calendar end --> 
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- right sec end --> 
+    </div>
+  </div>
+  <!-- data end --> 
+
+{% endblock%}
+
+

@@ -1,0 +1,92 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+  <!-- sticky header end --> 
+  <!-- bage header Start -->
+  <div class="container">
+    <div class="page-header">
+      <h1>Билим берүүнүн сапатын камсыздоо саясаты</h1>
+      <ol class="breadcrumb">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">pages</a></li>
+        <li class="active">FAQ's</li>
+      </ol>
+    </div>
+  </div>
+  <!-- bage header End --> 
+  <!-- data Start -->
+  <section>
+    <div class="container ">
+      <div class="row "> 
+        <!-- left sec Start -->
+        <div class="col-md-11 col-sm-11">
+          <div class="row">
+            <div class="panel-group tab-content" id="nav-tabContent">
+              {% for structuress in str_detail %}
+              <div class="panel panel-default " id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+                <div class="panel-heading">
+                 
+                  <h4 class="panel-title"> <a  href="{{ structuress.str_file.url }}"><span class="ion-ios7-help icon danger">{{ structuress.str_title }}</span> </a> </h4>
+                  
+                </div>
+              </div>
+              {% endfor %}
+              {% for structures in structure %}
+              <div class="panel panel-default tab-pane fade" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+                <div class="panel-heading">
+                  {% if structures.str_category.pk == 1 %}
+                  <h4 class="panel-title"> <a  href="{{ structures.str_file.url }}"><span class="ion-ios7-help icon danger">{{ structures.str_title }}</span> </a> </h4>
+                  {% endif %}
+                </div>
+              </div>
+              <div class="panel panel-default tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+                <div class="panel-heading">
+                  <h4 class="panel-title"> <a data-toggle="collapse" data-parent="#accordion" href="#collapse-5"> <span class="ion-ios7-help icon danger"></span>In enim justo, rhoncus ut? </a> </h4>
+                </div>
+              </div>
+
+              <div class="panel panel-default tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
+                <div class="panel-heading">
+                  <h4 class="panel-title"> <a data-toggle="collapse" data-parent="#accordion" href="#collapse-5"> <span class="ion-ios7-help icon danger"></span>In enim justo, rhoncus ut? </a> </h4>
+                </div>
+              </div>
+              {% endfor %}  
+            
+         
+              
+        
+            </div>
+          </div>
+        </div>
+        <!-- left sec End --> 
+        <!-- right sec Start -->
+        <div class="col-sm-5 hidden-xs right-sec">
+          <div class="bordered">
+            <div class="row ">
+         
+        
+                <!-- Tab panes -->
+                <div class="tab-content">
+                
+                  <nav class="nav-container">
+                    <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                      <a class="nav-item nav-link " id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Окуу пландары жана билим берүү программалары</a>
+                      <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Инсанга багытталган окутуу жана жетишүүнү баалоо </a>
+                      <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">Кабыл алуу жана билим берүүнүн натыйжаларын таануу</a>
+                    </div>
+                  </nav>
+
+                </div>
+              <!-- activities end --> 
+        
+           
+            </div>
+          </div>
+        </div>
+        <!-- Right Sec End --> 
+      </div>
+    </div>
+  </section>
+  <!-- Data End --> 
+{% endblock %}
